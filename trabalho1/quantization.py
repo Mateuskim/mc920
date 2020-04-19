@@ -6,7 +6,7 @@ from PIL import Image
 import PIL
 
 
-def adjust_brightness(img , lvl):
+def adjust_brightness(img, lvl):
     return np.floor(img/lvl)
 
 # main function for intensity where you can choose the filter
@@ -14,7 +14,7 @@ def main(img_path):
 
     img = misc.imread(img_path)
 
-    for i in range(7, 0, -1):
+    for i in range(1, 8, 1):
         # changing the brightness of the image
         new_img = adjust_brightness(img, (2**i))
 
@@ -26,6 +26,7 @@ def main(img_path):
 
         # showing the new image with the filter applied
         plt.imshow(new_img, cmap='gray')
+        plt.title(str(int(256/(2**i))) + " niveis")
         plt.show()
 
 
