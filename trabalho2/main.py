@@ -6,11 +6,10 @@ from filters import *
 
 def main_all(img_path):
     # reading the image
-    new_img = img = misc.imread(img_path)
+    img = misc.imread(img_path)
     x = []
     for i in range(1,10):
-        new_img = 255*apply_filter(img/255, 'h'+str(i))
-        x.append(new_img)
+        x.append(255*apply_filter(img/255, 'h'+str(i)))
 
     plt.figure(figsize=(10,10))
     for i in range(9):
