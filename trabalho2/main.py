@@ -20,6 +20,11 @@ def main_all(img_path):
         else:
             plt.title('SQRT(H3² + H4²)')
         plt.imshow(x[i], cmap='gray', vmin=0, vmax=255)
+    # path and name of the new image
+    new_name = "output/" + img_path[4:-4] + '_all_imgs.png'
+
+    # saving the new image
+    plt.savefig(new_name, cmap='gray', vmin=0, vmax=255)
     plt.show()
 
 
