@@ -1,13 +1,18 @@
+import sys
+from scipy import misc
+import matplotlib.pyplot as plt
+
 from filters import *
 
-def main(img_path, funtion):
-    img = misc.imread(img_path)
 
-    if filtro == "h1":
-        h1(img)
+def main(img_path, function):
+    # reading the image
+    new_img = img = misc.imread(img_path)
+
+    new_img = apply_filter(new_img, function)
 
     # path and name of the new image
-    new_name = "output/1.3/" + img_path[4:-4] + '-' + function + ".png"
+    new_name = "output/" + img_path[4:-4] + '-' + function + ".png"
 
     # saving the new image
     plt.imsave(new_name, new_img, cmap='gray', vmin=0, vmax=255)
@@ -17,4 +22,4 @@ def main(img_path, funtion):
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1], sys.argv[2])
