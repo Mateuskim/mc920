@@ -10,8 +10,6 @@ def apply_filter(img, f):
 
     #if the filter exist
     if f in filter_matrix:
-        print(get_matrix(f))
-        print(cv2.filter2D(img, -1, get_matrix(f)))
         return cv2.filter2D(img, -1, get_matrix(f))
 
     elif f == 'h9':

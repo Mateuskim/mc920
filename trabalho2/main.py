@@ -7,10 +7,21 @@ from filters import *
 def main_all(img_path):
     # reading the image
     new_img = img = misc.imread(img_path)
+    x = []
     for i in range(1,10):
         new_img = 255*apply_filter(img/255, 'h'+str(i))
-        plt.imshow(new_img, cmap='gray', vmin=0, vmax=255)
-        plt.show()
+        x.append(new_img)
+
+    plt.figure(figsize=(10,10))
+    for i in range(9):
+        plt.subplot(3,3,i+1)
+        if i != 8:
+            plt.title('H' + str(i+1))
+        else:
+            plt.title('SQRT(H3² + H4²)')
+        plt.imshow(x[i], cmap='gray', vmin=0, vmax=255)
+    plt.show()
+
 
 def main(img_path, function):
     # reading the image
